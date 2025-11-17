@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New Academy · 2025 Online Auditions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Terms Overlay -->
+  <div id="terms-overlay" class="terms-overlay">
+    <div class="terms-modal">
+      <header class="terms-header">
+        <div class="terms-title-row">
+          <span class="sparkle">✦</span>
+          <h2>Welcome to Your Journey</h2>
+          <span class="sparkle">✦</span>
+        </div>
+        <p class="terms-subtitle">
+          Before you audition, please read what New Academy is about.
+        </p>
+      </header>
+
+      <div class="terms-progress-wrap">
+        <div class="terms-progress-label">
+          <span id="terms-progress-text">Keep reading: 0%</span>
+        </div>
+        <div class="terms-progress-bar">
+          <div id="terms-progress-inner"></div>
+        </div>
+      </div>
+
+      <div id="terms-scroll" class="terms-body">
+        <section class="terms-block">
+          <h3>What is New Academy?</h3>
+          <p>
+            New Academy is the name of this <strong>audition program</strong>.
+            It’s not the final name of the group. We’re an
+            <strong>independent, faith-based initiative</strong> started by
+            people who love K-pop and want to use it to spread a positive
+            Christian message.
+          </p>
+          <p>
+            We are <strong>not a big label</strong>, so things may move more
+            slowly. We appreciate patience as we build something meaningful
+            with heart and dedication.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>Who Can Join?</h3>
+          <p>
+            This audition is open to <strong>boys ages 12–14</strong>.
+          </p>
+          <p>
+            We’re looking for people who are passionate, dedicated, and ready
+            to grow. You don’t have to be perfect — just willing to work hard,
+            learn, and support your future groupmates.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>Our Faith &amp; Mission</h3>
+          <p>
+            This is a <strong>Christian K-pop project</strong>. Our music and
+            message are centered on faith, hope, and sharing the gospel in a
+            way that’s accessible and inspiring.
+          </p>
+          <ul>
+            <li>We prioritize faith and character over fame.</li>
+            <li>We want members comfortable expressing Christian beliefs.</li>
+            <li>Your wellbeing is more important than image or numbers.</li>
+          </ul>
+        </section>
+
+        <section class="terms-block">
+          <h3>Training & Commitment</h3>
+          <p>
+            If things move forward, there can be a training period of
+            <strong>2–5 years</strong> before debut, and we hope for a
+            <strong>long-term commitment</strong> as a group afterward.
+          </p>
+          <p>
+            Training includes practicing, building skills, bonding as a team,
+            and preparing for performances and content.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>Group Culture</h3>
+          <p>
+            We want a group that feels like a <strong>family</strong>, not
+            just co-workers. Being kind, supportive, and honest with each
+            other is important.
+          </p>
+          <p>
+            There is no single “boss” member in the group — everyone is valued
+            and important in different ways.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>For Parents & Guardians</h3>
+          <p>
+            Parents, thank you for supporting your child’s dreams. Please be
+            aware of the time commitment, public nature of a K-pop group, and
+            the Christian focus of this project.
+          </p>
+          <p>
+            We encourage open communication between you, your child, and the
+            team at every step.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>Ready?</h3>
+          <p>
+            If this all sounds exciting — using talent for God’s glory,
+            working hard, and being part of a team — then we’d love to see
+            your audition.
+          </p>
+        </section>
+      </div>
+
+      <footer class="terms-footer">
+        <label class="terms-check-row">
+          <input type="checkbox" id="terms-checkbox" disabled />
+          <span id="terms-checkbox-label">
+            Scroll to the bottom to unlock this checkbox
+          </span>
+        </label>
+        <button id="terms-accept-btn" class="btn-primary" disabled>
+          ✨ I Understand &amp; Agree
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Background decoration -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo">
+        <div class="hero-logo-main">NEW</div>
+        <div class="hero-logo-sub">ACADEMY</div>
+      </div>
+      <p class="hero-tagline">2025 Online Auditions</p>
+      <p class="hero-subtag">Using talent for God’s glory</p>
+
+      <button id="scroll-to-form" class="btn-cta" disabled>
+        Start Your Audition
+      </button>
+
+      <p class="hero-note">(Read and accept the terms first to unlock.)</p>
+    </div>
+  </header>
+
+  <!-- Audition Form -->
+  <main>
+    <section id="audition-section" class="audition-section">
+      <div id="form-card" class="form-card form-card-disabled">
+        <h2 class="form-title">Audition Form</h2>
+        <p class="form-subtitle">
+          Please fill in this form honestly and carefully. All starred (*) fields are required.
+        </p>
+
+        <form id="audition-form">
+          <div class="form-grid">
+            <!-- Parent Info -->
+            <div class="field-group">
+              <label for="parent-name">Parent / Guardian Name *</label>
+              <input type="text" id="parent-name" name="parentName" required />
+              <div class="field-error" id="error-parent-name"></div>
+            </div>
+
+            <div class="field-group">
+              <label for="parent-email">Parent / Guardian Email *</label>
+              <input
+                type="email"
+                id="parent-email"
+                name="parentEmail"
+                required
+              />
+              <div class="field-error" id="error-parent-email"></div>
+            </div>
+
+            <!-- Child Info -->
+            <div class="field-group">
+              <label for="child-name">Auditioner Name *</label>
+              <input type="text" id="child-name" name="childName" required />
+              <div class="field-error" id="error-child-name"></div>
+            </div>
+
+            <div class="field-group">
+              <label for="child-email">Auditioner Email (optional)</label>
+              <input type="email" id="child-email" name="childEmail" />
+              <div class="field-error" id="error-child-email"></div>
+            </div>
+
+            <!-- Birthday -->
+            <div class="field-group">
+              <label>Date of Birth *</label>
+              <div class="dob-row">
+                <input
+                  type="number"
+                  id="birth-year"
+                  name="birthYear"
+                  placeholder="Year"
+                  min="2005"
+                  max="2030"
+                  required
+                />
+                <input
+                  type="number"
+                  id="birth-month"
+                  name="birthMonth"
+                  placeholder="Month"
+                  min="1"
+                  max="12"
+                  required
+                />
+                <input
+                  type="number"
+                  id="birth-day"
+                  name="birthDay"
+                  placeholder="Day"
+                  min="1"
+                  max="31"
+                  required
+                />
+              </div>
+              <div class="field-error" id="error-birth"></div>
+            </div>
+
+            <!-- Role -->
+            <div class="field-group">
+              <label for="role">What role are you auditioning for? *</label>
+              <select id="role" name="role" required>
+                <option value="">Select a role</option>
+                <option value="vocalist">Main Vocalist</option>
+                <option value="rapper">Main Rapper</option>
+                <option value="dancer">Main Dancer</option>
+                <option value="visualizer">Main Visualizer</option>
+                <option value="allrounder" disabled>All-Rounder (not open)</option>
+              </select>
+              <p class="role-hint">
+                Vocalist: audio only • Rapper: audio only • Dancer: video only • Visualizer: 2 photos only
+              </p>
+              <div class="field-error" id="error-role"></div>
+            </div>
+
+            <!-- PFP -->
+            <div class="field-group">
+              <label for="pfp">Profile Photo (PFP) *</label>
+              <input
+                type="file"
+                id="pfp"
+                name="pfp"
+                accept="image/*"
+                required
+              />
+              <p class="hint">Clear photo of the auditioner’s face.</p>
+              <div class="field-error" id="error-pfp"></div>
+            </div>
+
+            <!-- Audio (Vocalist/Rapper) -->
+            <div id="audio-group" class="field-group hidden">
+              <label for="audio-file">Audio Upload (Vocalist / Rapper) *</label>
+              <input
+                type="file"
+                id="audio-file"
+                name="audioFile"
+                accept="audio/*"
+              />
+              <p class="hint">
+                Sing or rap clearly. 1–3 minutes is ideal. MP3 / M4A / WAV are okay.
+              </p>
+              <div class="field-error" id="error-audio"></div>
+            </div>
+
+            <!-- Video (Dancer) -->
+            <div id="video-group" class="field-group hidden">
+              <label for="video-file">Dance Video (Main Dancer) *</label>
+              <input
+                type="file"
+                id="video-file"
+                name="videoFile"
+                accept="video/*"
+              />
+              <p class="hint">
+                About 1 minute of dancing. Show your best moves and energy.
+              </p>
+              <div class="field-error" id="error-video"></div>
+            </div>
+
+            <!-- Visualizer Photos -->
+            <div id="visuals-group" class="field-group hidden">
+              <label for="visuals-file">
+                Visual Photos (Main Visualizer) – 2 photos *</label>
+              <input
+                type="file"
+                id="visuals-file"
+                name="visualsFile"
+                accept="image/*"
+                multiple
+              />
+              <p class="hint">
+                Upload at least 2 photos that show your visuals / presence.
+              </p>
+              <div class="field-error" id="error-visuals"></div>
+            </div>
+
+            <!-- Extra Notes -->
+            <div class="field-group">
+              <label for="notes">Anything else we should know? (optional)</label>
+              <textarea
+                id="notes"
+                name="notes"
+                rows="3"
+                placeholder="Training, church involvement, performance experience, etc."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <div id="form-error-global" class="form-error-global"></div>
+            <button id="submit-btn" type="submit" class="btn-primary">
+              Submit Audition
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Thank You Screen -->
+      <div id="thank-you" class="thank-you hidden">
+        <div class="thank-you-card">
+          <div class="check-circle">✓</div>
+          <h2>AUDITION SUBMITTED!</h2>
+          <p class="thank-sub">
+            Thank you for your submission.
+          </p>
+
+          <div class="thank-info">
+            <h3>What happens next?</h3>
+            <p>
+              Please wait <strong>4–6 months</strong> while we review all
+              auditions carefully. We will contact the parent email you
+              provided with any updates.
+            </p>
+          </div>
+
+          <div class="thank-info purple">
+            <h3>We appreciate your patience</h3>
+            <p>
+              As an independent, faith-based project, we are taking our time
+              to find the right members who share the vision of using talent
+              for God’s glory.
+            </p>
+          </div>
+
+          <p class="thank-small">
+            If you have questions, reply to the confirmation email you receive
+            from the form. 💌
+          </p>
+
+          <button id="back-home-btn" class="btn-ghost">
+            Back to top
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 New Academy · Powered by faith and passion · newacademy.net</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
