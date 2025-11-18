@@ -1,121 +1,222 @@
-/* ---------------------------
-   SHOW TERMS FIRST
-----------------------------*/
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("terms-screen").style.display = "block";
-  document.getElementById("home-screen").style.display = "none";
-  document.getElementById("audition-screen").style.display = "none";
-  document.getElementById("thankyou").style.display = "none";
-});
+  // Sections
+  const termsSection = document.getElementById("terms-section");
+  const homeSection = document.getElementById("home-section");
+  const auditionSection = document.getElementById("audition-section");
+  const thankyouSection = document.getElementById("thankyou-section");
 
-/* Accept Terms */
-function acceptTerms() {
-  document.getElementById("terms-screen").style.display = "none";
-  document.getElementById("home-screen").style.display = "block";
-}
+  // Terms
+  const termsScroll = document.getElementById("terms-scroll");
+  const termsCheckbox = document.getElementById("terms-checkbox");
+  const termsContinue = document.getElementById("terms-continue");
 
-/* Go to Audition */
-function startAudition() {
-  document.getElementById("home-screen").style.display = "none";
-  document.getElementById("audition-screen").style.display = "block";
-}
+  // Home buttons
+  const startAuditionBtn = document.getElementById("start-audition");
 
-/* ---------------------------
-   AUDITION STEP LOGIC
-----------------------------*/
+  // Form & steps
+  const auditionForm = document.getElementById("audition-form");
+  const step1 = document.getElementById("step1");
+  const step2 = document.getElementById("step2");
+  const toStep2Btn = document.getElementById("to-step2");
+  const backToHomeBtn = document.getElementById("back-to-home");
+  const backToStep1Btn = document.getElementById("back-to-step1");
+  const roleSelect = document.getElementById("role-select");
+  const submitBtn = document.getElementById("submit-btn");
+  const errorMessage = document.getElementById("error-message");
 
-let selectedRole = null;
+  // Upload sections
+  const profilePhotoInput = document.getElementById("profilePhoto");
+  const audioSection = document.getElementById("audio-section");
+  const audioFileInput = document.getElementById("audioFile");
+  const videoSection = document.getElementById("video-section");
+  const videoFileInput = document.getElementById("videoFile");
+  const visualSection = document.getElementById("visual-section");
+  const visualPhoto1Input = document.getElementById("visualPhoto1");
+  const visualPhoto2Input = document.getElementById("visualPhoto2");
 
-function handleRoleSelect(role) {
-  selectedRole = role;
+  const backHomeFinalBtn = document.getElementById("back-home-final");
 
-  // Show or hide fields based on role selection
-  document.getElementById("audio-upload").style.display = "none";
-  document.getElementById("video-upload").style.display = "none";
-  document.getElementById("visual-upload").style.display = "none";
-
-  if (role === "Main Vocalist" || role === "Main Rapper") {
-    document.getElementById("audio-upload").style.display = "block";
+  // Helper to show a section
+  function showSection(section) {
+    [termsSection, homeSection, auditionSection, thankyouSection].forEach(sec => {
+      if (!sec) return;
+      sec.classList.remove("active");
+    });
+    section.classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
-  if (role === "Main Dancer") {
-    document.getElementById("video-upload").style.display = "block";
-  }
-  if (role === "Main Visualizer") {
-    document.getElementById("visual-upload").style.display = "block";
-  }
-}
 
-/* Step 1 → Step 2 */
-function goToStep2() {
-  // Validation for personal info
-  const fields = ["parentName","parentEmail","childName","childEmail","birth"];
-  for (let id of fields) {
-    if (!document.getElementById(id).value.trim()) {
-      alert("Please fill out all fields.");
-      return;
+  // Helper to switch steps
+  function showStep(stepNumber) {
+    if (stepNumber === 1) {
+      step1.classList.add("active");
+      step2.classList.remove("active");
+    } else if (stepNumber === 2) {
+      step1.classList.remove("active");
+      step2.classList.add("active");
     }
+    errorMessage.textContent = "";
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  document.getElementById("step1").style.display = "none";
-  document.getElementById("step2").style.display = "block";
-}
-
-/* ---------------------------
-   SUBMIT TO FORMSPREE
-----------------------------*/
-
-async function submitAudition() {
-  if (!selectedRole) {
-    alert("Please select your role.");
-    return;
+  // TERMS: enable button only if scrolled to bottom AND checkbox checked
+  function updateTermsButtonState() {
+    const scrolledToBottom =
+      termsScroll.scrollTop + termsScroll.clientHeight >= termsScroll.scrollHeight - 10;
+    const checked = termsCheckbox.checked;
+    termsContinue.disabled = !(scrolledToBottom && checked);
   }
 
-  let formData = new FormData();
+  termsScroll.addEventListener("scroll", updateTermsButtonState);
+  termsCheckbox.addEventListener("change", updateTermsButtonState);
 
-  /* Required info */
-  formData.append("parentName", document.getElementById("parentName").value);
-  formData.append("parentEmail", document.getElementById("parentEmail").value);
-  formData.append("childName", document.getElementById("childName").value);
-  formData.append("childEmail", document.getElementById("childEmail").value);
-  formData.append("birth", document.getElementById("birth").value);
-  formData.append("role", selectedRole);
-
-  /* Always-required PFP */
-  let pfp = document.getElementById("pfp").files[0];
-  if (!pfp) {
-    alert("Please upload a profile photo.");
-    return;
-  }
-  formData.append("pfp", pfp);
-
-  /* Conditional Uploads */
-  if (selectedRole === "Main Vocalist" || selectedRole === "Main Rapper") {
-    let audio = document.getElementById("audio").files[0];
-    if (!audio) return alert("Please upload your audio.");
-    formData.append("audio", audio);
-  }
-
-  if (selectedRole === "Main Dancer") {
-    let video = document.getElementById("video").files[0];
-    if (!video) return alert("Please upload your dance video.");
-    formData.append("video", video);
-  }
-
-  if (selectedRole === "Main Visualizer") {
-    let pic1 = document.getElementById("vis1").files[0];
-    let pic2 = document.getElementById("vis2").files[0];
-    if (!pic1 || !pic2) return alert("Please upload 2 photos.");
-    formData.append("visual1", pic1);
-    formData.append("visual2", pic2);
-  }
-
-  /* Send to Formspree */
-  await fetch("https://formspree.io/f/xnnoeyng", {
-    method: "POST",
-    body: formData,
+  termsContinue.addEventListener("click", () => {
+    if (!termsContinue.disabled) {
+      showSection(homeSection);
+    }
   });
 
-  // Show Thank You screen
-  document.getElementById("audition-screen").style.display = "none";
-  document.getElementById("thankyou").style.display = "block";
-}
+  // HOME: start audition
+  if (startAuditionBtn) {
+    startAuditionBtn.addEventListener("click", () => {
+      showSection(auditionSection);
+      showStep(1);
+    });
+  }
+
+  // Back from step1 to home
+  backToHomeBtn.addEventListener("click", () => {
+    showSection(homeSection);
+  });
+
+  // Role-based upload logic
+  function updateUploadRequirements() {
+    const role = roleSelect.value;
+
+    // Reset required attributes
+    audioFileInput.required = false;
+    videoFileInput.required = false;
+    visualPhoto1Input.required = false;
+    visualPhoto2Input.required = false;
+
+    // Show/hide blocks logically? For now we keep all visible but rely on required.
+    // If you want them hidden, you can toggle display here.
+
+    if (role === "Main Vocalist" || role === "Main Rapper") {
+      audioFileInput.required = true;
+    } else if (role === "Main Dancer") {
+      videoFileInput.required = true;
+    } else if (role === "Main Visualizer") {
+      visualPhoto1Input.required = true;
+      visualPhoto2Input.required = true;
+    }
+    // All roles require PFP
+    profilePhotoInput.required = true;
+  }
+
+  roleSelect.addEventListener("change", updateUploadRequirements);
+
+  // STEP 1 → STEP 2
+  toStep2Btn.addEventListener("click", () => {
+    errorMessage.textContent = "";
+    const formData = new FormData(auditionForm);
+
+    const parentName = formData.get("parentName")?.trim();
+    const parentEmail = formData.get("parentEmail")?.trim();
+    const childName = formData.get("childName")?.trim();
+    const childEmail = formData.get("childEmail")?.trim();
+    const birthYear = formData.get("birthYear")?.trim();
+    const birthMonth = formData.get("birthMonth")?.trim();
+    const birthDay = formData.get("birthDay")?.trim();
+    const role = formData.get("role");
+
+    if (!parentName || !parentEmail || !childName || !childEmail || !birthYear || !birthMonth || !birthDay || !role) {
+      errorMessage.textContent = "Please fill out all required fields in Step 1.";
+      showStep(1);
+      return;
+    }
+
+    // Basic age check (loose)
+    const yearNum = parseInt(birthYear, 10);
+    if (isNaN(yearNum) || yearNum < 2008 || yearNum > 2014) {
+      errorMessage.textContent = "Please enter a realistic birth year (ages 12–14).";
+      showStep(1);
+      return;
+    }
+
+    updateUploadRequirements();
+    showStep(2);
+  });
+
+  // Back STEP 2 → STEP 1
+  backToStep1Btn.addEventListener("click", () => {
+    showStep(1);
+  });
+
+  // Final form submit (Step 2)
+  auditionForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errorMessage.textContent = "";
+
+    const formData = new FormData(auditionForm);
+    const role = formData.get("role");
+    const profilePhoto = profilePhotoInput.files[0];
+
+    if (!profilePhoto) {
+      errorMessage.textContent = "Profile photo is required for all roles.";
+      return;
+    }
+
+    // Role-specific validation
+    if (role === "Main Vocalist" || role === "Main Rapper") {
+      if (!audioFileInput.files[0]) {
+        errorMessage.textContent = "Please upload an audio file for your audition.";
+        return;
+      }
+    } else if (role === "Main Dancer") {
+      if (!videoFileInput.files[0]) {
+        errorMessage.textContent = "Please upload a dance video for your audition.";
+        return;
+      }
+    } else if (role === "Main Visualizer") {
+      if (!visualPhoto1Input.files[0] || !visualPhoto2Input.files[0]) {
+        errorMessage.textContent = "Please upload two photos for your visualizer audition.";
+        return;
+      }
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    try {
+      const response = await fetch("https://formspree.io/f/xnnoeyng", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error("Formspree returned an error");
+      }
+
+      // Success – show thank you
+      auditionForm.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Audition";
+      showSection(thankyouSection);
+    } catch (err) {
+      console.error(err);
+      errorMessage.textContent =
+        "There was a problem submitting your audition. Please check your connection and try again.";
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Audition";
+    }
+  });
+
+  // Thank you -> back home
+  backHomeFinalBtn.addEventListener("click", () => {
+    showSection(homeSection);
+  });
+});
