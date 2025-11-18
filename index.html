@@ -2,384 +2,575 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>New Academy · 2025 Online Auditions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>New Academy Auditions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Terms Overlay -->
-  <div id="terms-overlay" class="terms-overlay">
-    <div class="terms-modal">
-      <header class="terms-header">
-        <div class="terms-title-row">
-          <span class="sparkle">✦</span>
-          <h2>Welcome to Your Journey</h2>
-          <span class="sparkle">✦</span>
+  <!-- Decorative background -->
+  <div class="bg-orbits" aria-hidden="true"></div>
+
+  <main class="page">
+    <!-- HOME SECTION -->
+    <section id="homeSection" class="section section-active">
+      <div class="hero">
+        <div class="hero-logo">
+          <div class="hero-title-main">NEW</div>
+          <div class="hero-title-sub">ACADEMY</div>
         </div>
-        <p class="terms-subtitle">
-          Before you audition, please read what New Academy is about.
-        </p>
-      </header>
+        <p class="hero-tagline-orange">2025 Online Auditions</p>
+        <p class="hero-tagline-blue">Using talent for God's glory</p>
 
-      <div class="terms-progress-wrap">
-        <div class="terms-progress-label">
-          <span id="terms-progress-text">Keep reading: 0%</span>
-        </div>
-        <div class="terms-progress-bar">
-          <div id="terms-progress-inner"></div>
-        </div>
-      </div>
-
-      <div id="terms-scroll" class="terms-body">
-        <section class="terms-block">
-          <h3>What is New Academy?</h3>
-          <p>
-            New Academy is the name of this <strong>audition program</strong>.
-            It’s not the final name of the group. We’re an
-            <strong>independent, faith-based initiative</strong> started by
-            people who love K-pop and want to use it to spread a positive
-            Christian message.
-          </p>
-          <p>
-            We are <strong>not a big label</strong>, so things may move more
-            slowly. We appreciate patience as we build something meaningful
-            with heart and dedication.
-          </p>
-        </section>
-
-        <section class="terms-block">
-          <h3>Who Can Join?</h3>
-          <p>
-            This audition is open to <strong>boys ages 12–14</strong>.
-          </p>
-          <p>
-            We’re looking for people who are passionate, dedicated, and ready
-            to grow. You don’t have to be perfect — just willing to work hard,
-            learn, and support your future groupmates.
-          </p>
-        </section>
-
-        <section class="terms-block">
-          <h3>Our Faith &amp; Mission</h3>
-          <p>
-            This is a <strong>Christian K-pop project</strong>. Our music and
-            message are centered on faith, hope, and sharing the gospel in a
-            way that’s accessible and inspiring.
-          </p>
-          <ul>
-            <li>We prioritize faith and character over fame.</li>
-            <li>We want members comfortable expressing Christian beliefs.</li>
-            <li>Your wellbeing is more important than image or numbers.</li>
-          </ul>
-        </section>
-
-        <section class="terms-block">
-          <h3>Training & Commitment</h3>
-          <p>
-            If things move forward, there can be a training period of
-            <strong>2–5 years</strong> before debut, and we hope for a
-            <strong>long-term commitment</strong> as a group afterward.
-          </p>
-          <p>
-            Training includes practicing, building skills, bonding as a team,
-            and preparing for performances and content.
-          </p>
-        </section>
-
-        <section class="terms-block">
-          <h3>Group Culture</h3>
-          <p>
-            We want a group that feels like a <strong>family</strong>, not
-            just co-workers. Being kind, supportive, and honest with each
-            other is important.
-          </p>
-          <p>
-            There is no single “boss” member in the group — everyone is valued
-            and important in different ways.
-          </p>
-        </section>
-
-        <section class="terms-block">
-          <h3>For Parents & Guardians</h3>
-          <p>
-            Parents, thank you for supporting your child’s dreams. Please be
-            aware of the time commitment, public nature of a K-pop group, and
-            the Christian focus of this project.
-          </p>
-          <p>
-            We encourage open communication between you, your child, and the
-            team at every step.
-          </p>
-        </section>
-
-        <section class="terms-block">
-          <h3>Ready?</h3>
-          <p>
-            If this all sounds exciting — using talent for God’s glory,
-            working hard, and being part of a team — then we’d love to see
-            your audition.
-          </p>
-        </section>
-      </div>
-
-      <footer class="terms-footer">
-        <label class="terms-check-row">
-          <input type="checkbox" id="terms-checkbox" disabled />
-          <span id="terms-checkbox-label">
-            Scroll to the bottom to unlock this checkbox
-          </span>
-        </label>
-        <button id="terms-accept-btn" class="btn-primary" disabled>
-          ✨ I Understand &amp; Agree
+        <button id="startAuditionBtn" class="primary-btn hero-btn">
+          ✨ START YOUR AUDITION ✨
         </button>
-      </footer>
-    </div>
-  </div>
 
-  <!-- Background decoration -->
-  <div class="bg-orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
-
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-logo">
-        <div class="hero-logo-main">NEW</div>
-        <div class="hero-logo-sub">ACADEMY</div>
+        <div class="scroll-hint">
+          <p>Scroll to see the roles</p>
+          <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+          </div>
+        </div>
       </div>
-      <p class="hero-tagline">2025 Online Auditions</p>
-      <p class="hero-subtag">Using talent for God’s glory</p>
 
-      <button id="scroll-to-form" class="btn-cta" disabled>
-        Start Your Audition
-      </button>
-
-      <p class="hero-note">(Read and accept the terms first to unlock.)</p>
-    </div>
-  </header>
-
-  <!-- Audition Form -->
-  <main>
-    <section id="audition-section" class="audition-section">
-      <div id="form-card" class="form-card form-card-disabled">
-        <h2 class="form-title">Audition Form</h2>
-        <p class="form-subtitle">
-          Please fill in this form honestly and carefully. All starred (*) fields are required.
+      <div class="roles-section">
+        <h2 class="section-title">WE NEED A...</h2>
+        <p class="section-subtitle">
+          The fifth member was chosen—but who are the other four?
         </p>
 
-        <form id="audition-form">
-          <div class="form-grid">
-            <!-- Parent Info -->
-            <div class="field-group">
-              <label for="parent-name">Parent / Guardian Name *</label>
-              <input type="text" id="parent-name" name="parentName" required />
-              <div class="field-error" id="error-parent-name"></div>
-            </div>
-
-            <div class="field-group">
-              <label for="parent-email">Parent / Guardian Email *</label>
-              <input
-                type="email"
-                id="parent-email"
-                name="parentEmail"
-                required
-              />
-              <div class="field-error" id="error-parent-email"></div>
-            </div>
-
-            <!-- Child Info -->
-            <div class="field-group">
-              <label for="child-name">Auditioner Name *</label>
-              <input type="text" id="child-name" name="childName" required />
-              <div class="field-error" id="error-child-name"></div>
-            </div>
-
-            <div class="field-group">
-              <label for="child-email">Auditioner Email (optional)</label>
-              <input type="email" id="child-email" name="childEmail" />
-              <div class="field-error" id="error-child-email"></div>
-            </div>
-
-            <!-- Birthday -->
-            <div class="field-group">
-              <label>Date of Birth *</label>
-              <div class="dob-row">
-                <input
-                  type="number"
-                  id="birth-year"
-                  name="birthYear"
-                  placeholder="Year"
-                  min="2005"
-                  max="2030"
-                  required
-                />
-                <input
-                  type="number"
-                  id="birth-month"
-                  name="birthMonth"
-                  placeholder="Month"
-                  min="1"
-                  max="12"
-                  required
-                />
-                <input
-                  type="number"
-                  id="birth-day"
-                  name="birthDay"
-                  placeholder="Day"
-                  min="1"
-                  max="31"
-                  required
-                />
-              </div>
-              <div class="field-error" id="error-birth"></div>
-            </div>
-
-            <!-- Role -->
-            <div class="field-group">
-              <label for="role">What role are you auditioning for? *</label>
-              <select id="role" name="role" required>
-                <option value="">Select a role</option>
-                <option value="vocalist">Main Vocalist</option>
-                <option value="rapper">Main Rapper</option>
-                <option value="dancer">Main Dancer</option>
-                <option value="visualizer">Main Visualizer</option>
-                <option value="allrounder" disabled>All-Rounder (not open)</option>
-              </select>
-              <p class="role-hint">
-                Vocalist: audio only • Rapper: audio only • Dancer: video only • Visualizer: 2 photos only
-              </p>
-              <div class="field-error" id="error-role"></div>
-            </div>
-
-            <!-- PFP -->
-            <div class="field-group">
-              <label for="pfp">Profile Photo (PFP) *</label>
-              <input
-                type="file"
-                id="pfp"
-                name="pfp"
-                accept="image/*"
-                required
-              />
-              <p class="hint">Clear photo of the auditioner’s face.</p>
-              <div class="field-error" id="error-pfp"></div>
-            </div>
-
-            <!-- Audio (Vocalist/Rapper) -->
-            <div id="audio-group" class="field-group hidden">
-              <label for="audio-file">Audio Upload (Vocalist / Rapper) *</label>
-              <input
-                type="file"
-                id="audio-file"
-                name="audioFile"
-                accept="audio/*"
-              />
-              <p class="hint">
-                Sing or rap clearly. 1–3 minutes is ideal. MP3 / M4A / WAV are okay.
-              </p>
-              <div class="field-error" id="error-audio"></div>
-            </div>
-
-            <!-- Video (Dancer) -->
-            <div id="video-group" class="field-group hidden">
-              <label for="video-file">Dance Video (Main Dancer) *</label>
-              <input
-                type="file"
-                id="video-file"
-                name="videoFile"
-                accept="video/*"
-              />
-              <p class="hint">
-                About 1 minute of dancing. Show your best moves and energy.
-              </p>
-              <div class="field-error" id="error-video"></div>
-            </div>
-
-            <!-- Visualizer Photos -->
-            <div id="visuals-group" class="field-group hidden">
-              <label for="visuals-file">
-                Visual Photos (Main Visualizer) – 2 photos *</label>
-              <input
-                type="file"
-                id="visuals-file"
-                name="visualsFile"
-                accept="image/*"
-                multiple
-              />
-              <p class="hint">
-                Upload at least 2 photos that show your visuals / presence.
-              </p>
-              <div class="field-error" id="error-visuals"></div>
-            </div>
-
-            <!-- Extra Notes -->
-            <div class="field-group">
-              <label for="notes">Anything else we should know? (optional)</label>
-              <textarea
-                id="notes"
-                name="notes"
-                rows="3"
-                placeholder="Training, church involvement, performance experience, etc."
-              ></textarea>
-            </div>
-          </div>
-
-          <div class="form-footer">
-            <div id="form-error-global" class="form-error-global"></div>
-            <button id="submit-btn" type="submit" class="btn-primary">
-              Submit Audition
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Thank You Screen -->
-      <div id="thank-you" class="thank-you hidden">
-        <div class="thank-you-card">
-          <div class="check-circle">✓</div>
-          <h2>AUDITION SUBMITTED!</h2>
-          <p class="thank-sub">
-            Thank you for your submission.
-          </p>
-
-          <div class="thank-info">
-            <h3>What happens next?</h3>
-            <p>
-              Please wait <strong>4–6 months</strong> while we review all
-              auditions carefully. We will contact the parent email you
-              provided with any updates.
+        <div class="roles-grid">
+          <!-- Main Vocalist -->
+          <article class="role-card role-blue">
+            <div class="role-icon">🎤</div>
+            <h3 class="role-title">MAIN VOCALIST</h3>
+            <p class="role-text">
+              Carries the main melodies, hits high notes, and keeps vocals stable
+              even during choreography.
             </p>
-          </div>
+            <ul class="role-list">
+              <li>Strong pitch and control</li>
+              <li>Clear tone and emotion</li>
+              <li>Comfortable as vocal “center”</li>
+            </ul>
+          </article>
 
-          <div class="thank-info purple">
-            <h3>We appreciate your patience</h3>
-            <p>
-              As an independent, faith-based project, we are taking our time
-              to find the right members who share the vision of using talent
-              for God’s glory.
+          <!-- Main Dancer -->
+          <article class="role-card role-orange">
+            <div class="role-icon">🕺</div>
+            <h3 class="role-title">MAIN DANCER</h3>
+            <p class="role-text">
+              Leads choreography, sets the standard for performance, and keeps
+              the group sharp on stage.
             </p>
-          </div>
+            <ul class="role-list">
+              <li>Clean moves and timing</li>
+              <li>Strong stage presence</li>
+              <li>Comfortable learning fast choreo</li>
+            </ul>
+          </article>
 
-          <p class="thank-small">
-            If you have questions, reply to the confirmation email you receive
-            from the form. 💌
+          <!-- Main Rapper -->
+          <article class="role-card role-red">
+            <div class="role-icon">🎧</div>
+            <h3 class="role-title">MAIN RAPPER</h3>
+            <p class="role-text">
+              Brings power, rhythm, and personality through rap verses and
+              spoken parts in songs.
+            </p>
+            <ul class="role-list">
+              <li>Clear rhythm and flow</li>
+              <li>Strong diction and breath control</li>
+              <li>Confident delivery</li>
+            </ul>
+          </article>
+
+          <!-- Main Visualizer -->
+          <article class="role-card role-purple">
+            <div class="role-icon">📸</div>
+            <h3 class="role-title">MAIN VISUALIZER</h3>
+            <p class="role-text">
+              Represents the group image, shines in photos and videos, and
+              draws people into the concept.
+            </p>
+            <ul class="role-list">
+              <li>Comfortable on camera</li>
+              <li>Strong facial expressions</li>
+              <li>Good posture and presence</li>
+            </ul>
+          </article>
+
+          <!-- All-Rounder (closed) -->
+          <article class="role-card role-gray role-closed">
+            <div class="role-icon">✨</div>
+            <h3 class="role-title role-title-closed">ALL-ROUNDER</h3>
+            <p class="role-text role-text-closed">
+              Excels at multiple skills (singing, dancing, presence) and can
+              adapt to any position.
+            </p>
+            <p class="role-closed-label">Not available this round</p>
+          </article>
+        </div>
+
+        <div class="roles-footer">
+          <p class="roles-info-line"><strong>Ages:</strong> 12–14 (boys)</p>
+          <p class="roles-info-line">
+            <strong>Deadline:</strong> April 20, 2026
           </p>
-
-          <button id="back-home-btn" class="btn-ghost">
-            Back to top
+          <button class="secondary-btn" id="startAuditionBtnBottom">
+            APPLY NOW
           </button>
         </div>
       </div>
     </section>
+
+    <!-- AUDITION FORM SECTION -->
+    <section id="auditionSection" class="section">
+      <div class="form-shell">
+        <h2 class="section-title">New Academy Audition</h2>
+        <p class="section-subtitle">
+          Please complete all steps carefully. Parent/guardian permission is required.
+        </p>
+
+        <!-- Step indicator -->
+        <div class="steps-indicator">
+          <div class="step-dot step-dot-active" id="stepDot1">1</div>
+          <div class="step-line"></div>
+          <div class="step-dot" id="stepDot2">2</div>
+        </div>
+
+        <!-- STEP 1 -->
+        <form id="auditionForm">
+          <div id="step1" class="form-step form-step-active">
+            <h3 class="form-step-title">Step 1: Basic Information</h3>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="parentName">Parent/Guardian Name *</label>
+                <input type="text" id="parentName" name="parentName" required />
+              </div>
+
+              <div class="form-field">
+                <label for="parentEmail">Parent/Guardian Email *</label>
+                <input
+                  type="email"
+                  id="parentEmail"
+                  name="parentEmail"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="childName">Auditioner Name *</label>
+                <input type="text" id="childName" name="childName" required />
+              </div>
+
+              <div class="form-field">
+                <label for="childEmail">Auditioner Email (optional)</label>
+                <input type="email" id="childEmail" name="childEmail" />
+              </div>
+
+              <div class="form-field form-field-wide">
+                <label for="dob">Date of Birth (YYYY-MM-DD) *</label>
+                <input
+                  type="text"
+                  id="dob"
+                  name="dob"
+                  placeholder="2012-05-17"
+                  required
+                />
+              </div>
+
+              <div class="form-field form-field-wide">
+                <label for="location">City/State or Country (optional)</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="Example: Dallas, TX"
+                />
+              </div>
+            </div>
+
+            <p class="form-note">
+              By continuing, you confirm that a parent/guardian is aware of this
+              audition and is willing to receive updates by email.
+            </p>
+
+            <div class="form-buttons">
+              <button type="button" class="primary-btn" id="nextToStep2">
+                Next – Role & Media
+              </button>
+              <button type="button" class="ghost-btn" id="backToHome">
+                ← Back to Home
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div id="step2" class="form-step">
+            <h3 class="form-step-title">Step 2: Role & Media Links</h3>
+
+            <div class="form-grid">
+              <!-- Role select -->
+              <div class="form-field form-field-wide">
+                <label for="role">What role are you auditioning for? *</label>
+                <select id="role" name="role" required>
+                  <option value="">Select your role</option>
+                  <option value="Main Vocalist">Main Vocalist</option>
+                  <option value="Main Rapper">Main Rapper</option>
+                  <option value="Main Dancer">Main Dancer</option>
+                  <option value="Main Visualizer">Main Visualizer</option>
+                  <option value="All-Rounder" disabled>
+                    All-Rounder (not open this round)
+                  </option>
+                </select>
+              </div>
+
+              <!-- PFP -->
+              <div class="form-field form-field-wide">
+                <label for="pfpLink">
+                  Profile Photo Link (required for all roles) *
+                </label>
+                <input
+                  type="url"
+                  id="pfpLink"
+                  name="pfpLink"
+                  placeholder="Link to a clear headshot (Google Drive, iCloud, etc.)"
+                  required
+                />
+                <p class="helper-text">
+                  Please upload your photo to a safe site (Google Drive, iCloud,
+                  Dropbox, etc.) and paste the <strong>share link</strong> here.
+                </p>
+              </div>
+
+              <!-- Audio (vocalist / rapper) -->
+              <div
+                class="form-field form-field-wide media-field"
+                id="audioField"
+              >
+                <label for="audioLink">
+                  Audio Performance Link *
+                  <span class="badge">Vocalist &amp; Rapper</span>
+                </label>
+                <input
+                  type="url"
+                  id="audioLink"
+                  name="audioLink"
+                  placeholder="Link to audio (Drive, private YouTube, etc.)"
+                />
+                <p class="helper-text">
+                  1–3 minutes is perfect. Make sure your audio is clear and the
+                  link is accessible.
+                </p>
+              </div>
+
+              <!-- Video (dancer) -->
+              <div
+                class="form-field form-field-wide media-field"
+                id="videoField"
+              >
+                <label for="videoLink">
+                  Dance Video Link *
+                  <span class="badge badge-orange">Dancer</span>
+                </label>
+                <input
+                  type="url"
+                  id="videoLink"
+                  name="videoLink"
+                  placeholder="Link to a dance video (YouTube unlisted, Drive, etc.)"
+                />
+                <p class="helper-text">
+                  About 1 minute of your best dancing. Make sure we can see your
+                  full body clearly.
+                </p>
+              </div>
+
+              <!-- Visualizer photos -->
+              <div
+                class="form-field form-field-wide media-field"
+                id="visualField"
+              >
+                <label>
+                  Visual Photos Links *
+                  <span class="badge badge-purple">Visualizer</span>
+                </label>
+                <input
+                  type="url"
+                  id="photo1Link"
+                  name="photo1Link"
+                  placeholder="Photo 1 link (portrait or headshot)"
+                />
+                <input
+                  type="url"
+                  id="photo2Link"
+                  name="photo2Link"
+                  placeholder="Photo 2 link (full body or creative shot)"
+                  class="mt-8"
+                />
+                <p class="helper-text">
+                  Please upload photos to a safe site and paste the
+                  <strong>viewable links</strong> here.
+                </p>
+              </div>
+
+              <!-- Notes -->
+              <div class="form-field form-field-wide">
+                <label for="notes">Anything else we should know?</label>
+                <textarea
+                  id="notes"
+                  name="notes"
+                  rows="4"
+                  placeholder="Optional: experience, church involvement, schedule notes, etc."
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-buttons">
+              <button type="button" class="ghost-btn" id="backToStep1">
+                ← Back to Step 1
+              </button>
+              <button type="submit" class="primary-btn" id="submitBtn">
+                Submit Audition
+              </button>
+            </div>
+
+            <p class="form-note">
+              We use a free service (Formspree) to receive your application
+              safely by email. Please double-check all links before submitting.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- THANK YOU SECTION -->
+    <section id="thankYouSection" class="section">
+      <div class="thankyou-shell">
+        <div class="thankyou-icon">✅</div>
+        <h2 class="section-title">Audition Submitted!</h2>
+        <p class="section-subtitle">
+          Thank you for taking the time to audition and share your gifts.
+        </p>
+
+        <div class="thankyou-card">
+          <h3>What happens next?</h3>
+          <p>
+            Please allow <strong>4–6 months</strong> for us to carefully review
+            all auditions. We are a small, independent, faith-based project, so
+            things may move slower than a big company.
+          </p>
+          <p>
+            We will contact your parent/guardian by email with results or
+            next steps. Make sure they check their inbox (and spam folder)
+            regularly.
+          </p>
+        </div>
+
+        <div class="thankyou-card">
+          <h3>Thank you for your patience</h3>
+          <p>
+            We can’t guarantee big success overnight, but we can promise
+            this: we will do our best to honor God, work hard, and treat every
+            audition with respect.
+          </p>
+          <p>
+            Whether you are selected or not, we’re grateful you chose to use
+            your talent for God’s glory. 💙
+          </p>
+        </div>
+
+        <button id="backHomeFromThanks" class="secondary-btn">
+          ← Return to Home
+        </button>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© 2025 New Academy · Powered by faith and passion · newacademy.net</p>
-  </footer>
+  <!-- TERMS MODAL -->
+  <div id="termsModal" class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-panel">
+      <header class="modal-header">
+        <h2>Before You Audition</h2>
+        <p>Please read everything carefully with a parent/guardian.</p>
+      </header>
+
+      <div id="termsScroll" class="modal-body">
+        <!-- Big expanded terms content -->
+        <section class="terms-block">
+          <h3>1. What is New Academy?</h3>
+          <p>
+            New Academy is an independent, Christian-based K-pop style project.
+            It is <strong>not</strong> a large entertainment company. There are
+            no big investors, no fancy building, and no guaranteed contracts.
+            This is a small team trying to build something meaningful step by
+            step.
+          </p>
+          <p>
+            Because of this, progress may sometimes feel slow. Plans, timelines,
+            and ideas can change as we grow, learn, and see what is realistic.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>2. Our Mission & Faith</h3>
+          <p>
+            The purpose of this project is to use music, dance, and creativity
+            to point people toward Jesus. We want to encourage young people,
+            share hope, and glorify God—not chase fame at any cost.
+          </p>
+          <ul>
+            <li>We may say no to events that conflict with Christian values.</li>
+            <li>We care more about character than popularity.</li>
+            <li>
+              Members should be comfortable expressing Christian beliefs in a
+              kind and respectful way.
+            </li>
+          </ul>
+        </section>
+
+        <section class="terms-block">
+          <h3>3. Realistic Expectations</h3>
+          <p>
+            We want to be honest: this project might stay small for a while.
+            Videos might get only a few views at first. It may take years before
+            anything “big” happens—if it ever does.
+          </p>
+          <ul>
+            <li>There is <strong>no guarantee</strong> of fame or money.</li>
+            <li>Schedules might change or be delayed.</li>
+            <li>
+              Some ideas (like tours, albums, or merch) may take a long time or
+              may never happen.
+            </li>
+          </ul>
+          <p>
+            If you only want to be rich or famous, this is probably not the
+            right place. If you want to grow, create, and serve God with your
+            gifts, you’re in the right place.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>4. Age & Parent Involvement</h3>
+          <p>
+            Auditions are currently open for boys ages <strong>12–14</strong>.
+            A parent or guardian must:
+          </p>
+          <ul>
+            <li>Know about this audition.</li>
+            <li>Allow you to submit information and media links.</li>
+            <li>Be willing to receive emails about the results.</li>
+          </ul>
+        </section>
+
+        <section class="terms-block">
+          <h3>5. Training & Time</h3>
+          <p>
+            If this project moves forward, training could last several years
+            before any official debut (for example, 2–5 years). This may
+            include:
+          </p>
+          <ul>
+            <li>Regular practice (online or in person, if possible).</li>
+            <li>Learning choreography and vocal techniques.</li>
+            <li>Creating content for social media.</li>
+          </ul>
+          <p>
+            Life, school, and family always come first. We encourage balance and
+            healthy priorities.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>6. Health & Safety</h3>
+          <p>
+            We do <strong>not</strong> support unhealthy dieting, self-harm,
+            or dangerous behavior just to “look like an idol.” Your physical,
+            mental, and spiritual health matter more than views.
+          </p>
+          <p>
+            If you ever feel unsafe, pressured, or overwhelmed, please talk to
+            your parent/guardian and a trusted adult right away.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>7. Public Presence & Social Media</h3>
+          <p>
+            If the group becomes active, members may appear on public platforms
+            (videos, photos, lives, etc.). There is always some level of public
+            attention and feedback.
+          </p>
+          <p>
+            We will do our best to protect and guide members, but we cannot
+            remove all risk of rude comments or negativity online. Healthy
+            boundaries and family support are very important.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>8. Selection & Results</h3>
+          <p>
+            Not everyone who auditions will be selected. This does not mean you
+            are not talented or special. Sometimes we make decisions based on
+            group balance, schedule, and things that are outside of your
+            control.
+          </p>
+          <p>
+            Please be kind to yourself and to others, no matter the outcome.
+          </p>
+        </section>
+
+        <section class="terms-block">
+          <h3>9. Agreement</h3>
+          <p>
+            By checking the box and continuing, you and your parent/guardian
+            understand that:
+          </p>
+          <ul>
+            <li>This is a small, independent Christian project.</li>
+            <li>Nothing is guaranteed—timing and growth may be slow.</li>
+            <li>
+              Participation and selection are not promises of future fame or
+              income.
+            </li>
+            <li>
+              You are choosing to audition because you enjoy performing and want
+              to honor God with your talents.
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <footer class="modal-footer">
+        <div class="terms-progress">
+          <div id="termsProgressBar" class="terms-progress-bar"></div>
+        </div>
+        <p class="terms-progress-text" id="termsProgressText">
+          Scroll to the bottom to unlock the checkbox.
+        </p>
+
+        <div class="terms-agree-row">
+          <input type="checkbox" id="termsCheckbox" disabled />
+          <label for="termsCheckbox">
+            I have read and understand these terms, and I agree with a
+            parent/guardian.
+          </label>
+        </div>
+
+        <button id="acceptTermsBtn" class="primary-btn" disabled>
+          I’m Ready – Continue to Audition
+        </button>
+
+        <button id="closeTermsBtn" class="ghost-btn">
+          Cancel and Return Home
+        </button>
+      </footer>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
