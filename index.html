@@ -1,31 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>New Academy Auditions – 2025 Online Auditions</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Google Font similar to your design -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
+<head>
+  <meta charset="UTF-8" />
+  <title>New Academy – 2025 Online Auditions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="New Academy – a Christian K-pop audition program for boys ages 12–14. Using talent for God's glory."
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body class="na-body">
 
-    <!-- React + ReactDOM + Babel (so we can write JSX in app.js) -->
-    <script
-      src="https://unpkg.com/react@18/umd/react.development.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-      crossorigin
-    ></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- ================= HEADER / HERO ================= -->
+  <header class="na-hero" id="top">
+    <div class="na-hero-inner">
+      <div class="na-brand">
+        <div class="na-logo-dot"></div>
+        <span class="na-logo-text">New Academy</span>
+      </div>
 
-    <!-- Your React app -->
-    <script type="text/babel" src="app.js"></script>
-  </body>
+      <nav class="na-nav">
+        <a href="#roles" class="na-nav-link">Roles</a>
+        <a href="#journey" class="na-nav-link">Journey</a>
+        <a href="#faq" class="na-nav-link">FAQ</a>
+        <a href="audition.html" class="na-nav-cta">Apply</a>
+      </nav>
+    </div>
+
+    <div class="na-hero-content">
+      <div class="na-hero-text">
+        <p class="na-hero-kicker">2025 Online Auditions</p>
+        <h1 class="na-hero-title">
+          NEW<br />
+          ACADEMY
+        </h1>
+        <p class="na-hero-subtitle">
+          Using talent for God’s glory.<br />
+          A Christian K-pop audition program for boys ages 12–14.
+        </p>
+
+        <div class="na-hero-buttons">
+          <a href="audition.html" class="na-btn na-btn-primary">
+            <span>Start Your Audition</span>
+            <span class="na-btn-icon">✨</span>
+          </a>
+          <button class="na-btn na-btn-ghost" data-scroll-target="#journey">
+            Learn more
+          </button>
+        </div>
+
+        <p class="na-hero-meta">
+          Ages <strong>12–14 (boys)</strong> · Deadline
+          <strong>April 20, 2026</strong>
+        </p>
+      </div>
+
+      <div class="na-hero-card">
+        <p class="na-hero-card-label">What is New Academy?</p>
+        <p class="na-hero-card-text">
+          New Academy is an independent, faith-based initiative created by
+          people who love K-pop and want to use it to spread a positive Christian
+          message. This isn’t a huge company—it’s a small team starting something
+          meaningful from the ground up.
+        </p>
+        <p class="na-hero-card-text">
+          We’re looking for young people who want to grow, work hard, and use
+          their talents to share God’s love through music.
+        </p>
+      </div>
+    </div>
+
+    <div class="na-hero-scroll-hint" data-scroll-target="#roles">
+      <span class="na-hero-scroll-text">Scroll to learn more</span>
+      <div class="na-hero-scroll-circle"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= ROLES ================= -->
+    <section class="na-section na-section-dark" id="roles">
+      <div class="na-section-inner">
+        <header class="na-section-header">
+          <p class="na-section-kicker">We Need A...</p>
+          <h2 class="na-section-title">The fifth member was chosen—who are the next four?</h2>
+          <p class="na-section-subtitle">
+            We’re searching for four more boys to complete a 5-member Christian K-pop group.
+            Each member brings something unique to the team.
+          </p>
+        </header>
+
+        <div class="na-role-grid">
+          <article class="na-role-card na-role-vocal">
+            <div class="na-role-icon">🎤</div>
+            <h3 class="na-role-title">Main Vocalist</h3>
+            <p class="na-role-text">
+              Carry the vocal backbone of the group with powerful, stable vocals.
+              Handle the most challenging vocal parts and lead emotional moments in songs.
+            </p>
+          </article>
+
+          <article class="na-role-card na-role-dancer">
+            <div class="na-role-icon">🕺</div>
+            <h3 class="na-role-title">Main Dancer</h3>
+            <p class="na-role-text">
+              Lead the group’s choreography with precision, power, and grace. Set the
+              standard for performance and help bring each stage to life.
+            </p>
+          </article>
+
+          <article class="na-role-card na-role-rapper">
+            <div class="na-role-icon">🎧</div>
+            <h3 class="na-role-title">Main Rapper</h3>
+            <p class="na-role-text">
+              Deliver powerful rap verses with flow, rhythm, and confidence. Add energy,
+              attitude, and edge to the group’s sound while keeping the message positive.
+            </p>
+          </article>
+
+          <article class="na-role-card na-role-visual">
+            <div class="na-role-icon">📸</div>
+            <h3 class="na-role-title">Main Visualizer</h3>
+            <p class="na-role-text">
+              Embody the group’s visual concept and brand image. Capture attention through
+              stage presence, styling, and creative concepts for performances and media.
+            </p>
+          </article>
+
+          <article class="na-role-card na-role-allrounder">
+            <div class="na-role-icon">⭐</div>
+            <h3 class="na-role-title">All-Rounder</h3>
+            <p class="na-role-text">
+              Strong in multiple areas—singing, dancing, and presence. A versatile member who
+              can step into any role the group needs.
+            </p>
+          </article>
+        </div>
+
+        <div class="na-section-cta-row">
+          <p class="na-section-meta">
+            Not sure which role fits you best? Don’t worry—you’ll choose a role on the
+            audition form, but we’ll help you discover your strengths during training.
+          </p>
+          <a href="audition.html" class="na-btn na-btn-primary">
+            Apply for Your Role
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= JOURNEY / TERMS ================= -->
+    <section class="na-section na-section-light" id="journey">
+      <div class="na-section-inner na-section-inner-wide">
+        <header class="na-section-header">
+          <p class="na-section-kicker">Welcome to Your Journey ✨</p>
+          <h2 class="na-section-title">Before you apply, let’s talk about what this really means.</h2>
+          <p class="na-section-subtitle">
+            Please read the sections below carefully. These aren’t just “terms”—this is a
+            glimpse of the commitment, faith, and teamwork that will shape your New Academy
+            experience.
+          </p>
+        </header>
+
+        <div class="na-journey-progress">
+          <div class="na-journey-progress-bar" id="journeyProgressBar"></div>
+        </div>
+
+        <div class="na-accordion" data-progress-target="#journeyProgressBar">
+          <!-- 01 – What is New Academy -->
+          <article class="na-accordion-item na-accordion-open">
+            <button class="na-accordion-header">
+              <span class="na-accordion-title">1. What is New Academy?</span>
+              <span class="na-accordion-chevron">▾</span>
+            </button>
+            <div class="na-accordion-body">
+              <p>
+                <strong>New Academy</strong> is the name of this audition and training
+                program—it’s not the final name of the group. We’ll create that together as a team.
+              </p>
+              <p>
+                We’re an independent, faith-based initiative created by Christians who love
+                K-pop and want to show that you can be successful in entertainment while
+                staying true to your values.
+              </p>
+              <p>
+                This is not a huge entertainment company with unlimited resources. We’re
+                starting small, working hard, and trusting God as we build something meaningful.
+              </p>
+            </div>
+          </article>
+
+          <!-- 02 – Age Requirement -->
+          <article class="na-accordion-item">
+            <button class="na-accordion-header">
+              <span class="na-accordion-title">2. Age Requirement: 12–14 Years Old</span>
+              <span class="na-accordion-chevron">▾</span>
+            </button>
+            <div class="na-accordion-body">
+              <p>
+                You must be between <strong>12 and 14 years old</strong> at the time of
+                audition. We chose this age range because it’s a key season for training,
+                character growth, and building a strong foundation for your future.
+              </p>
+              <p>
+                No exceptions can be made to this requirement. If you’re outside this age
+                range, please keep following the project—we hope to create other
+                opportunities in the future.
+              </p>
+            </div>
+          </article>
+
+          <!-- 03 – Our Faith & Mission -->
+          <article class="na-accordion-item">
+            <button class="na-accordion-header">
+              <span class="na-accordion-title">3. Our Faith & Mission: A Christian K-pop Group 🙏</span>
+              <span class="na-accordion-chevron">▾</span>
+            </button>
+            <div class="na-accordion-body">
+              <p>
+                This will be a <strong>Christian K-pop group</strong>—possibly one of the
+                first of its kind. Our music and message will be centered on faith, hope, and
+                sharing the gospel in a way that’s accessible and uplifting.
+              </p>
+              <p>
+                We’re not focused on fame or awards (though those things might come).
+                Our real goal is to use music to share God’s love and encourage others
+                in their walk with Christ.
+              </p>
+              <p>
+                If we’re invited to events that conflict with our Christian values, we may
+                choose not to attend. We prioritize faith and character over commercial success.
+              </p>
+            </div>
+          </article>
+
+          <!-- 04 – Training & Timeline -->
+          <article class="na-accordion-item">
+            <button class="na-accordion-header">
+              <span class="na-accordion-title">4. Training & Timeline</span>
+              <span class="na-accordion-chevron">▾</span>
+            </button>
+            <div class="na-accordion-body">
+              <p>
+                Before the group officially debuts, there will be a <strong>training period
+                of 2–5 years</strong>. This might sound long, but it allows time for you to
+                grow as a singer, dancer, performer, and disciple of Jesus.
+              </p>
+              <p>
+                Training could include:
+              </p>
+              <ul>
+                <li>Regular vocal and dance lessons</li>
+                <li>Stage presence and performance coaching</li>
+                <li>Team-building activities and group devotionals</li>
+                <li>Workshops on songwriting, media, and ministry</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 05 – Group Commitment -->
+          <article class="na-accordion-item">
+            <button class="na-accordion-header">
+              <span class="na-accordion-title">5. Group Commitment: 5+ Years Minimum</span>
+              <span class="na-accordion-chevron">▾</span>
+            </button>
+            <div class="na-accordion-body">
+              <p>
+                Once the group debuts, we’re asking members for a
+                <strong>minimum 5-year commitment</strong>. Many successful K-pop groups
+                stay together for 7–10+ years. We want to create friendships and memories
+                that last far beyond a single album.
+              </p>
+              <p>
+                That means:
+              </p>
+              <ul>
+                <li>Consistent practice schedules and rehearsals</li>
+                <li>Balancing school, family, church, and group responsibilities</li>
+                <li>Showing up for your members even when you’re tired</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 06 – Group Culture & Expectations -->
+          <article class="na-accordion-item">
+            <button class="na-accordion-header">
+              <span class="na-accordion-title">6. Group Culture & Expectations</span>
+              <span class="na-accordion-chevron">▾</span>
+            </button>
+            <div class="na-accordion-body">
+              <p>
+                In this group, there’s <strong>no single leader</strong>. Every member is
+                valued equally. You may have a main role (Main Dancer, Main Vocalist, etc.),
+                but no one is “above” anyone else.
+              </p>
+              <ul>
+                <li>Be kind, supportive, and honest with your members.</li>
+                <li>Encourage each other spiritually and emotionally.</li>
+                <li>Resolve conflicts with respect and open communication.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 07 – Safety & Communication -->
+          <article class="na-accordion-item">
+            <button class="na-accordion-header">
+              <span class="na-accordion-title">7. Open Communication & Safety</span>
+              <span class="na-accordion-chevron">▾</span>
+            </button>
+            <div class="na-accordion-body">
+              <p>
+                If something feels wrong—if you’re struggling, uncomfortable, or unsure
+                about anything—we want you to <strong>speak up</strong>. Talk to your
+                parents, our team, or a trusted adult.
+              </p>
+              <p>
+                Your safety and wellbeing are non-negotiable. We’re committed to creating a
+                healthy environment where everyone feels heard, supported, and respected.
+              </p>
+            </div>
+          </article>
+
+          <!-- 08 – Social Media -->
+          <article class="na-accordion-item">
+            <button class="na-accordion-header">
+              <span class="na-accordion-title">8. Social Media & Public Presence</span>
+              <span class="na-accordion-chevron">▾</span>
+            </button>
+            <div class="na-accordion-body">
+              <p>
+                As a member, you’ll be encouraged to be <strong>active on social media</strong>.
+                That’s how we’ll connect with fans, share music, and spread our message.
+              </p>
+              <p>
+                We’ll guide you in how to post safely and wisely. If you’re very uncomfortable
+                with having a public presence online, this program might not be the best fit
+                right now—and that’s okay.
+              </p>
+            </div>
+          </article>
+
+          <!-- 09 – For Parents -->
+          <article class="na-accordion-item">
+            <button class="na-accordion-header">
+              <span class="na-accordion-title">9. For Parents & Guardians</span>
+              <span class="na-accordion-chevron">▾</span>
+            </button>
+            <div class="na-accordion-body">
+              <p>
+                Parents, thank you for supporting your child’s dreams.
+                We want you to be <strong>informed and involved</strong>.
+              </p>
+              <p>
+                This is a big commitment that involves emotional, spiritual, and practical
+                support from the whole family. We encourage open communication between our
+                team, your child, and you.
+              </p>
+              <p>
+                Please make sure you’re comfortable with:
+              </p>
+              <ul>
+                <li>The Christian focus of this project</li>
+                <li>The time commitments of rehearsal and content creation</li>
+                <li>The public nature of being part of a K-pop style group online</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 10 – Ready to Begin -->
+          <article class="na-accordion-item">
+            <button class="na-accordion-header">
+              <span class="na-accordion-title">10. Ready to Begin? ✨</span>
+              <span class="na-accordion-chevron">▾</span>
+            </button>
+            <div class="na-accordion-body">
+              <p>
+                If everything you’ve read still sounds exciting—if you’re ready to work hard,
+                grow as an artist and a person, and use your talents to spread God’s love
+                through music—then we’d love to see your audition.
+              </p>
+              <p>
+                This is just the beginning of an incredible journey.
+                Let’s create something beautiful together. 💜
+              </p>
+              <div class="na-journey-consent">
+                <label class="na-checkbox">
+                  <input type="checkbox" id="journeyConsent" />
+                  <span>I have read and understand all of the information above.</span>
+                </label>
+                <a href="audition.html" class="na-btn na-btn-primary na-btn-disabled" id="journeyApplyBtn">
+                  I’m Ready – Let’s Go!
+                </a>
+                <p class="na-journey-note">
+                  (The button will unlock once you tick the checkbox.)
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="na-section na-section-dark" id="faq">
+      <div class="na-section-inner">
+        <header class="na-section-header">
+          <p class="na-section-kicker">Questions</p>
+          <h2 class="na-section-title">FAQ</h2>
+        </header>
+
+        <div class="na-faq-grid">
+          <article class="na-faq-item">
+            <h3>Do I have to be Korean?</h3>
+            <p>
+              No. You don’t need to be Korean to audition. We welcome applicants from any
+              background who love K-pop, love Jesus, and are willing to work hard.
+            </p>
+          </article>
+
+          <article class="na-faq-item">
+            <h3>Where will training happen?</h3>
+            <p>
+              Training will start online and locally (depending on where selected members
+              live). As the project grows, we may gather in person more frequently for
+              rehearsals, recordings, and events.
+            </p>
+          </article>
+
+          <article class="na-faq-item">
+            <h3>Is there a cost to audition?</h3>
+            <p>
+              There is no fee to submit an online audition. If you pass, there may be some
+              costs related to lessons, travel, or equipment, but we’ll always communicate
+              clearly before asking for any commitment.
+            </p>
+          </article>
+
+          <article class="na-faq-item">
+            <h3>How long until I hear back?</h3>
+            <p>
+              Because we’re a small team, reviewing auditions may take
+              <strong>4–6 months</strong>. Please be patient and keep checking the parent
+              or guardian email you provide.
+            </p>
+          </article>
+        </div>
+
+        <div class="na-section-cta-row na-section-cta-row-center">
+          <p class="na-section-meta">
+            Still unsure? Pray about it, talk with your parents, and if you feel peace about
+            it—send in your audition. We’ll be here.
+          </p>
+          <a href="audition.html" class="na-btn na-btn-primary">Start Your Audition</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="na-footer">
+    <div class="na-footer-inner">
+      <p class="na-footer-brand">New Academy · Using talent for God’s glory</p>
+      <p class="na-footer-meta">
+        &copy; <span id="year"></span> New Academy. This is an independent, faith-based
+        project and is not affiliated with any major entertainment company.
+      </p>
+    </div>
+  </footer>
+</body>
 </html>
