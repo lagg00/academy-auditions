@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New Academy – Audition Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body class="na-body na-body-light">
+
+  <header class="na-form-header">
+    <div class="na-form-header-inner">
+      <a href="index.html" class="na-form-back">&larr; Back to Home</a>
+      <div class="na-form-title-block">
+        <p class="na-form-kicker">New Academy · 2025 Online Auditions</p>
+        <h1 class="na-form-title">Audition Application</h1>
+        <p class="na-form-subtitle">
+          This form has two steps. Please fill everything out carefully with a parent or
+          guardian nearby.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="na-form-main">
+    <section class="na-form-card" id="step1">
+      <header class="na-form-step-header">
+        <p class="na-form-step-label">Step 1</p>
+        <h2 class="na-form-step-title">Basic Information</h2>
+        <p class="na-form-step-desc">
+          Tell us about yourself and your parent or guardian.
+        </p>
+      </header>
+
+      <form id="auditionForm">
+        <!-- Parent / Guardian -->
+        <fieldset class="na-fieldset">
+          <legend>Parent / Guardian Information</legend>
+
+          <div class="na-input-row">
+            <label class="na-label" for="parentName">Parent/Guardian Full Name *</label>
+            <input
+              type="text"
+              id="parentName"
+              name="parentName"
+              class="na-input"
+              required
+              placeholder="Enter full name"
+            />
+          </div>
+
+          <div class="na-input-row">
+            <label class="na-label" for="parentEmail">Parent/Guardian Email *</label>
+            <input
+              type="email"
+              id="parentEmail"
+              name="parentEmail"
+              class="na-input"
+              required
+              placeholder="parent@example.com"
+            />
+          </div>
+        </fieldset>
+
+        <!-- Applicant -->
+        <fieldset class="na-fieldset">
+          <legend>Applicant Information</legend>
+
+          <div class="na-input-row">
+            <label class="na-label" for="applicantName">Applicant Full Name *</label>
+            <input
+              type="text"
+              id="applicantName"
+              name="applicantName"
+              class="na-input"
+              required
+              placeholder="Enter full name"
+            />
+          </div>
+
+          <div class="na-input-row">
+            <label class="na-label" for="applicantEmail">Applicant Email *</label>
+            <input
+              type="email"
+              id="applicantEmail"
+              name="applicantEmail"
+              class="na-input"
+              required
+              placeholder="applicant@example.com"
+            />
+          </div>
+
+          <div class="na-input-row">
+            <label class="na-label">Date of Birth * (Must be 12–14 years old)</label>
+            <div class="na-dob-grid">
+              <input
+                type="number"
+                id="dobYear"
+                name="dobYear"
+                class="na-input"
+                placeholder="Year"
+                min="2005"
+                max="2030"
+                required
+              />
+              <input
+                type="number"
+                id="dobMonth"
+                name="dobMonth"
+                class="na-input"
+                placeholder="Month"
+                min="1"
+                max="12"
+                required
+              />
+              <input
+                type="number"
+                id="dobDay"
+                name="dobDay"
+                class="na-input"
+                placeholder="Day"
+                min="1"
+                max="31"
+                required
+              />
+            </div>
+            <p class="na-input-help" id="ageHelp">
+              We’ll automatically check if you’re between 12 and 14.
+            </p>
+          </div>
+
+          <div class="na-input-row">
+            <label class="na-label" for="country">Where do you live? *</label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              class="na-input"
+              required
+              placeholder="City, State/Province, Country"
+            />
+          </div>
+
+          <div class="na-input-row">
+            <label class="na-label" for="experience">
+              Do you have any previous experience with singing, dancing, or performing?
+            </label>
+            <textarea
+              id="experience"
+              name="experience"
+              rows="3"
+              class="na-input na-textarea"
+              placeholder="It's okay if you don't have much experience yet! Just be honest."
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <div class="na-form-actions">
+          <button type="button" class="na-btn na-btn-primary" id="nextStepBtn">
+            Next Step →
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="na-form-card na-form-card-hidden" id="step2">
+      <header class="na-form-step-header">
+        <p class="na-form-step-label">Step 2</p>
+        <h2 class="na-form-step-title">Your Audition</h2>
+        <p class="na-form-step-desc">
+          Tell us what role you’re auditioning for and upload your video.
+        </p>
+      </header>
+
+      <form id="auditionStepTwo">
+        <fieldset class="na-fieldset">
+          <legend>Audition Details</legend>
+
+          <div class="na-input-row">
+            <label class="na-label" for="auditionRole">
+              What role are you auditioning for? *
+            </label>
+            <select id="auditionRole" name="auditionRole" class="na-input" required>
+              <option value="">Select a role</option>
+              <option value="Main Vocalist">Main Vocalist</option>
+              <option value="Main Dancer">Main Dancer</option>
+              <option value="Main Rapper">Main Rapper</option>
+              <option value="Main Visualizer">Main Visualizer</option>
+              <option value="All-Rounder">All-Rounder</option>
+            </select>
+          </div>
+
+          <div class="na-input-row">
+            <label class="na-label" for="videoUrl">
+              Audition Video Link (YouTube, Google Drive, etc.) *
+            </label>
+            <input
+              type="url"
+              id="videoUrl"
+              name="videoUrl"
+              class="na-input"
+              required
+              placeholder="https://..."
+            />
+            <p class="na-input-help">
+              Upload your video to YouTube (unlisted is fine) or a cloud service, then paste
+              the share link here.
+            </p>
+          </div>
+
+          <div class="na-input-row">
+            <label class="na-label" for="message">
+              Anything else you’d like us to know?
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="3"
+              class="na-input na-textarea"
+              placeholder="Optional: share your heart, testimony, or dreams."
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <aside class="na-form-side-note">
+          <h3>Video Tips 🎥</h3>
+          <ul>
+            <li>Show your best skills for your chosen role.</li>
+            <li>Good lighting and clear audio are very important.</li>
+            <li>Be yourself and let your personality shine!</li>
+            <li>Length of 1–3 minutes is ideal.</li>
+          </ul>
+        </aside>
+
+        <div class="na-form-actions na-form-actions-split">
+          <button type="button" class="na-btn na-btn-ghost" id="backStepBtn">
+            ← Back
+          </button>
+          <button type="submit" class="na-btn na-btn-primary" id="submitAuditionBtn">
+            Submit Audition
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- COMPLETED SCREEN -->
+    <section class="na-form-card na-form-card-hidden" id="step3">
+      <header class="na-form-step-header na-form-step-header-center">
+        <div class="na-complete-icon">✔</div>
+        <h2 class="na-form-step-title">Audition Submitted!</h2>
+        <p class="na-form-step-desc">
+          Thank you so much for taking the time to apply.
+        </p>
+      </header>
+
+      <div class="na-complete-body">
+        <h3>What happens next?</h3>
+        <p>
+          Please wait <strong>4–6 months</strong> while we carefully review all auditions.
+          We’ll contact you using the parent/guardian email you provided—so make sure to
+          check that inbox regularly (and keep an eye on the spam folder just in case).
+        </p>
+
+        <h3>We appreciate your patience 💜</h3>
+        <p>
+          As an independent, faith-based initiative, we’re taking our time to ensure we
+          choose members who share our vision of spreading the gospel through music.
+          Thank you for understanding—and for being brave enough to share your talent with us.
+        </p>
+
+        <p>
+          In the meantime, keep training, growing in your faith, and supporting others around
+          you. No matter what happens, God can use your gifts in amazing ways.
+        </p>
+
+        <div class="na-form-actions na-form-actions-center">
+          <a href="index.html" class="na-btn na-btn-primary">Return Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="na-footer">
+    <div class="na-footer-inner">
+      <p class="na-footer-brand">New Academy</p>
+      <p class="na-footer-meta">
+        &copy; <span id="year"></span> New Academy. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
