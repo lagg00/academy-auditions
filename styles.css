@@ -142,7 +142,7 @@ body {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: clamp(32px, 5vw, 64px);
   align-items: stretch;
 }
@@ -170,10 +170,36 @@ body {
 }
 
 .na-hero-subtitle {
-  margin: 0 0 24px;
+  margin: 0 0 10px;
   color: var(--na-text-subtle);
   font-size: 1rem;
   max-width: 32rem;
+}
+
+.na-hero-note {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: var(--na-text-muted);
+}
+
+.na-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.na-badge {
+  font-size: 0.78rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(12, 19, 60, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f5f5ff;
+}
+
+.na-badge-outline {
+  background: transparent;
 }
 
 .na-hero-buttons {
@@ -320,10 +346,6 @@ body {
   background: rgba(255, 255, 255, 0.06);
 }
 
-.na-btn-icon {
-  font-size: 1rem;
-}
-
 .na-btn-disabled {
   pointer-events: none;
   opacity: 0.35;
@@ -408,19 +430,69 @@ body {
   pointer-events: none;
 }
 
+/* icon base – pure CSS */
 .na-role-icon {
   width: 32px;
   height: 32px;
-  border-radius: 14px;
+  border-radius: 12px;
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+/* default glowing orb */
+.na-role-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0, rgba(255,255,255,0.1) 40%, transparent 70%);
+  opacity: 0.9;
+}
+
+/* specific tints per role (inherit from card class) */
+.na-role-vocal .na-role-icon {
+  background: radial-gradient(circle at 0 0, #7fb5ff 0, #304bff 55%, #141a38 100%);
+}
+
+.na-role-dancer .na-role-icon {
+  background: radial-gradient(circle at 0 0, #ffc97a 0, #ff8e3d 55%, #2a1620 100%);
+}
+
+.na-role-rapper .na-role-icon {
+  background: radial-gradient(circle at 0 0, #ff8ac2 0, #ff3f86 55%, #2a1320 100%);
+}
+
+.na-role-visual .na-role-icon {
+  background: radial-gradient(circle at 0 0, #b296ff 0, #7e53ff 55%, #241634 100%);
+}
+
+/* ALL-ROUNDER icon – gray X made in CSS */
+.na-role-icon-allrounder {
+  background: radial-gradient(circle at 0 0, #e0e3f0 0, #b2b6c4 50%, #7a7f8c 100%);
+}
+
+.na-role-icon-allrounder::before,
+.na-role-icon-allrounder::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 2px;
+  background: #3e4350;
+  border-radius: 999px;
+}
+
+.na-role-icon-allrounder::before {
+  transform: rotate(45deg);
+}
+
+.na-role-icon-allrounder::after {
+  transform: rotate(-45deg);
 }
 
 .na-role-title {
-  margin: 0 0 6px;
+  margin: 10px 0 6px;
   font-size: 1.05rem;
 }
 
@@ -430,24 +502,24 @@ body {
   color: var(--na-text-subtle);
 }
 
-.na-role-vocal {
-  background: radial-gradient(circle at 0 0, rgba(95, 162, 255, 0.3) 0, #11192e 40%, #05071c 100%);
+/* All-Rounder disabled card */
+.na-role-disabled {
+  background: linear-gradient(145deg, #232634, #161825);
+  border-color: rgba(255, 255, 255, 0.08);
+  opacity: 0.65;
+  filter: grayscale(0.7);
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
-.na-role-dancer {
-  background: radial-gradient(circle at 0 0, rgba(255, 186, 124, 0.32) 0, #171320 40%, #05071c 100%);
+.na-role-disabled .na-role-title {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(255, 255, 255, 0.7);
 }
 
-.na-role-rapper {
-  background: radial-gradient(circle at 0 0, rgba(253, 119, 165, 0.32) 0, #171322 40%, #05071c 100%);
-}
-
-.na-role-visual {
-  background: radial-gradient(circle at 0 0, rgba(150, 119, 255, 0.32) 0, #171322 40%, #05071c 100%);
-}
-
-.na-role-allrounder {
-  background: linear-gradient(145deg, #141827, #212842);
+.na-role-disabled .na-role-text {
+  color: #c2c5d5;
 }
 
 .na-section-cta-row {
@@ -471,109 +543,26 @@ body {
 }
 
 /* ===========================
-   Journey / Accordion
+   Program cards
    =========================== */
 
-.na-journey-progress {
-  width: 100%;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  margin-bottom: 18px;
+.na-program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
 }
 
-.na-journey-progress-bar {
-  height: 100%;
-  width: 8%;
-  border-radius: inherit;
-  background: linear-gradient(120deg, #ffdf8c, #ff6ad5);
-  transition: width 0.3s ease-out;
-}
-
-.na-accordion {
-  border-radius: var(--na-radius-lg);
-  background: #0f1630;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  color: #f2f3ff;
-  overflow: hidden;
-}
-
-.na-section-light .na-accordion {
-  background: #141b36;
-  color: #f8f8ff;
-}
-
-.na-accordion-item + .na-accordion-item {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.na-accordion-header {
-  width: 100%;
-  text-align: left;
-  padding: 18px 20px;
-  background: transparent;
-  border: none;
-  color: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-}
-
-.na-accordion-title {
-  font-size: 0.96rem;
-  font-weight: 600;
-}
-
-.na-accordion-chevron {
+.na-program-card {
+  border-radius: var(--na-radius-md);
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(17, 24, 80, 0.13);
+  padding: 18px 18px 20px;
   font-size: 0.9rem;
-  opacity: 0.8;
-  transition: transform var(--na-transition-med);
 }
 
-.na-accordion-item.na-accordion-open .na-accordion-chevron {
-  transform: rotate(180deg);
-}
-
-.na-accordion-body {
-  padding: 0 20px 18px;
-  font-size: 0.9rem;
-  color: #dce0ff;
-}
-
-.na-accordion-body p {
-  margin: 0 0 10px;
-}
-
-.na-accordion-body ul {
-  margin: 0 0 10px 18px;
-}
-
-/* journey consent */
-
-.na-journey-consent {
-  margin-top: 14px;
-}
-
-.na-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.88rem;
-  margin-bottom: 12px;
-}
-
-.na-checkbox input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  border-radius: 3px;
-}
-
-.na-journey-note {
-  margin-top: 6px;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.7);
+.na-program-card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
 }
 
 /* ===========================
@@ -793,25 +782,6 @@ body {
   justify-content: center;
 }
 
-/* side note */
-
-.na-form-side-note {
-  margin-top: 16px;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: #f4f6ff;
-  font-size: 0.88rem;
-}
-
-.na-form-side-note h3 {
-  margin: 0 0 6px;
-  font-size: 0.96rem;
-}
-
-.na-form-side-note ul {
-  margin: 0 0 0 18px;
-}
-
 /* complete screen */
 
 .na-complete-icon {
@@ -834,6 +804,56 @@ body {
 
 .na-complete-body p {
   font-size: 0.9rem;
+}
+
+/* ===========================
+   Terms styling
+   =========================== */
+
+.na-terms {
+  margin-bottom: 16px;
+}
+
+.na-terms-section + .na-terms-section {
+  border-top: 1px solid #e3e6ff;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.na-terms-section h3 {
+  margin: 0 0 6px;
+  font-size: 0.96rem;
+}
+
+.na-terms-section p {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+}
+
+.na-terms-section ul {
+  margin: 0 0 6px 18px;
+  font-size: 0.9rem;
+}
+
+.na-terms-consent {
+  border-top: 1px solid #e3e6ff;
+  padding-top: 12px;
+}
+
+/* checkbox */
+
+.na-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 12px;
+}
+
+.na-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
 }
 
 /* ===========================
